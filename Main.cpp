@@ -23,7 +23,10 @@ int main()
 		if(option ==2) user.logIn();
 		if (option == 3) break;
 	}
-	
+	//todo
+	//file deletion
+	//version deletion
+	//account deletion
 
 	return 0;
 };
