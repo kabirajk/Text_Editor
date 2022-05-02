@@ -123,11 +123,17 @@ public:
 	void Remove()
 	{
 		Display();
+		
 		//std::string line;
 		int index;
 		std::cout << "enter the index to update " << std::endl;
 		std::cin >> index;
-		currentHead->mutable_textline(index)->clear();
+		auto element = currentHead->textline(index);
+		//currentHead->mutable_textline(index)->clear();
+		for(auto it=currentHead->textline().begin();it!=currentHead->textline().end(); it++)
+		{
+			if (std::string(it->data()) == element) { currentHead->mutable_textline()->erase(it); break; };
+		}
 	
 	}
 	void Display()
