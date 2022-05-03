@@ -21,10 +21,10 @@
     <ClCompile Include="..\User.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="textfile.pb.cc">
+    <ClCompile Include="filesversion.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="filesversion.pb.cc">
+    <ClCompile Include="textfile.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,10 +41,10 @@
     <ClInclude Include="filepicker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="textfile.pb.h">
+    <ClInclude Include="filesversion.pb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="filesversion.pb.h">
+    <ClInclude Include="textfile.pb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

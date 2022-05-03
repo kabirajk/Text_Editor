@@ -1,6 +1,7 @@
 #include <iostream>
 #include <conio.h>
 #include <fstream>
+#include <ctime>
 
 #include "User.pb.h"
 #include "textfile.pb.h"

@@ -10,7 +10,7 @@ public:
 	{
 		currentProject = project;
 		fileName = currentProject->filename() + currentProject->creater();
-		currentVersion = currentProject->currentverion();
+		currentVersion = currentProject->currentversion();
 		std::cout << "loaded";
 		readData(fileName);
 		
@@ -23,11 +23,16 @@ public:
 	}
 	void setHead(){ currentHead = fileDataList.mutable_filedatabase(currentVersion-1); }
 
-	void addCommit(int version = 1, int commitcount = 1, std::string createdtime = "")
+	void addCommit(int version = 1, int commitcount = 1)
 	{
 		fileVer::File* newfile = fileDataList.add_filedatabase();
 		newfile->set_commitcount(commitcount);
-		newfile->set_createdtime(createdtime);
+		const time_t Time = time(0);
+		char createdtime[26];
+		ctime_s(createdtime, 26, &Time);
+		
+		newfile->set_createdtime(std::string(createdtime));
+		std::cout << newfile->createdtime() << std::endl;
 		newfile->set_version(version);
 	}
 
@@ -46,7 +51,7 @@ public:
 		std::cout << count;
 		while(1)
 		{
-			std::cout << "1 => Add, 2 => Update, 3 => Remove, 4 => Display, 5 => revertVersion 6 => exit 123456 => cleara text file versions " << std::endl;
+			std::cout << "1 => Add, 2 => Update, 3 => Remove, 4 => Display, 5 => revertVersion 6 => exit " << std::endl;
 			int option = -1;
 			std::cin >> option;
 			if (option == 1) 
@@ -88,8 +93,7 @@ public:
 			}
 
 			if (count != currentHead->commitcount()) { currentHead->set_commitcount(count); }
-			if (option == 123456) { fileDataList.clear_filedatabase(); fileDataList.clear_currentversion(); currentHead = nullptr; addCommit(); currentVersion = 1; }
-		}
+				}
 	}
 
 	void printData() 
@@ -126,7 +130,7 @@ public:
 		
 		//std::string line;
 		int index;
-		std::cout << "enter the index to update " << std::endl;
+		std::cout << "enter the index to Delete " << std::endl;
 		std::cin >> index;
 		auto element = currentHead->textline(index);
 		//currentHead->mutable_textline(index)->clear();
@@ -177,6 +181,6 @@ public:
 		else if (!fileDataList.SerializePartialToOstream(&boutObject)) { std::cout << "unable to write data !data lost" << std::endl; }
 	}
 
-	~Editor() { writeData(fileName); currentProject->set_currentverion(currentVersion); }
+	~Editor() { writeData(fileName); currentProject->set_currentversion(currentVersion); }
 
 };

@@ -28,10 +28,10 @@ public:
 		std::cout << "[Password]: ";
 		std::cin >> password;
 		password = encryptPassword(password);
-		for (int userindex = 0; userindex < userListArray.userdatabase_size(); userindex += 1)
+		int userindex = 0,notfound=0;
+		for (userindex; userindex < userListArray.userdatabase_size(); userindex += 1)
 		{
 			const userdata::User& currentuser = userListArray.userdatabase(userindex);
-			//const userdata::User* userpr = &currentuser;
 			//std::cout << userListArray.userdatabase_size() <<(username==currentuser.name())<<( password==currentuser.password())<<std::endl;
 			if (currentuser.name() == username)
 			{//try to impelent for email
@@ -41,17 +41,21 @@ public:
 					//passsfun(currentuser.name());
 					auto text=TextEditor(currentuser.name());
 					std::cout << "logged out" << std::endl;
+					notfound = 0;
 					break;
+
 				}
-				else { std::cout << "Mismatch " << std::endl; }
+				else { std::cout << "Mismatch " << std::endl; notfound = 0; }
 			}
-			else
-			{
-				std::cout << "User name not match" << std::endl;
-				signUp();
-			}
+			else { notfound = 1; }
+			
 		}
 		if (userUniqueCount == 0) signUp();
+		else if(notfound==1)
+		{
+			std::cout << "User name not match" << std::endl;
+			signUp();
+		}
 
 	}
 
