@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+
+package Files;
+message Project{
+	
+	optional int32 projectId= 1;
+	optional int32 currentVersion= 2;
+	optional string fileName= 3;
+	optional string creater= 4;
+	optional string createdTime= 5;
+	optional string ModifiedTime= 6;
+	
+}
+
+message ProjectList{
+	repeated Project projectNameList= 1;
+	optional int32 count= 2;
+}

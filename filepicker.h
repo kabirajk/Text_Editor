@@ -121,7 +121,7 @@ public:
 		{
 			std::cout << projectindex << ". " << projectList.projectnamelist(projectindex).filename() << std::endl;
 		}
-		std::cout << "[Delte][Index to File]: " << std::endl;
+		std::cout << "[Delete][Index to File]: " << std::endl;
 		int id;
 		std::cin >> id;
 		if (id >= 0 && id < projectList.projectnamelist_size())
@@ -142,7 +142,6 @@ public:
 
 	~TextEditor()
 	{
-		//projectList.set_count(uniqueProjectCount);
 		std::fstream boutObject(creater + ".bin", std::ios::out | std::ios::trunc | std::ios::binary);
 		if (!boutObject.is_open()) { std::cout << "unable to open project *.bin file" << std::endl; }
 		else if (!projectList.SerializePartialToOstream(&boutObject)) { std::cout << "unable to write data !data lost" << std::endl; }

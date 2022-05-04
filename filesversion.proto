@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package fileVer;
+
+message File{
+	
+	optional int32 Version= 1;
+	optional string createdtime = 2;
+	optional int32 commitcount= 3;
+	repeated string textline= 4;
+}
+message Filedata{
+	repeated File filedatabase= 1;
+	optional int32 currentversion=2;
+	optional string filename= 3;
+}

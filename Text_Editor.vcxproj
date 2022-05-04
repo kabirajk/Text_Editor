@@ -155,6 +155,11 @@
     <ClInclude Include="textfile.pb.h" />
     <ClInclude Include="userportal.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="filesversion.proto" />
+    <None Include="textfile.proto" />
+    <None Include="User.proto" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

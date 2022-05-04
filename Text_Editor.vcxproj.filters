@@ -48,4 +48,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="filesversion.proto" />
+    <None Include="textfile.proto" />
+    <None Include="User.proto" />
+  </ItemGroup>
 </Project>
