@@ -123,6 +123,7 @@ public:
 		int index;
 		std::cout<< "enter the index to update " << std::endl;
 		std::cin >> index;
+		std::cout << "Enter the text to be changed in " << index;
 		std::cin.ignore();
 		getline(std::cin, line);
 		currentHead->mutable_textline(index)->assign(line.c_str());
