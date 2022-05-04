@@ -2,7 +2,7 @@
 #include <conio.h>
 #include <fstream>
 #include <ctime>
-
+#include <stdio.h>
 
 #include "User.pb.h"
 #include "textfile.pb.h"

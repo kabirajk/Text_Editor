@@ -124,6 +124,7 @@ public:
 		std::cout << "[Delete][Index to File]: " << std::endl;
 		int id;
 		std::cin >> id;
+		std::string name;
 		if (id >= 0 && id < projectList.projectnamelist_size())
 		{
 			id = projectList.projectnamelist(id).projectid();
@@ -131,8 +132,10 @@ public:
 			{
 				if (iter->projectid() == id)
 				{
+					name = (iter->filename() + iter->creater()) + ".bin";
 					std::cout << "[Deletetd]" << iter->filename() << std::endl;
 					(&projectList)->mutable_projectnamelist()->erase(iter);
+					remove(name.c_str());
 					break;
 				}
 			}

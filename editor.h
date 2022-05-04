@@ -118,11 +118,13 @@ public:
 		
 	}
 	void Update(){
+
 		Display();
 		std::string line;
 		int index;
 		std::cout<< "enter the index to update " << std::endl;
 		std::cin >> index;
+		if((index>=0 && index<currentHead->textline_size())&& currentHead->textline_size()!=0)
 		std::cout << "Enter the text to be changed in " << index;
 		std::cin.ignore();
 		getline(std::cin, line);
