@@ -41,6 +41,7 @@ public:
 					//passsfun(currentuser.name());
 
 					auto text=TextEditor(currentuser.name());
+					system("cls");
 					std::cout << "logged out" << std::endl;
 					notfound = 0;
 					break;
@@ -51,13 +52,29 @@ public:
 			else { notfound = 1; }
 			
 		}
-		if (userUniqueCount == 0) signUp();
+		if (userListArray.userdatabase_size() == 0) signUp();
 		else if(notfound==1)
 		{
 			std::cout << "User name not match" << std::endl;
 			signUp();
 		}
 
+	}
+	std::string CheckPassword(std::string password)
+	{	
+		try
+		{	
+			if (password.length() < 6)
+				throw "Password needs more than 6 char";
+
+		}
+		catch (char* c)
+		{
+			std::cout << c << "  " << "Enter [Password]";
+			std::cin >> password;
+			password=CheckPassword(password);
+		}
+		return password;
 	}
 
 	void signUp()
@@ -75,8 +92,9 @@ public:
 		newUser->set_email(email);
 		
 		std::string password;
-		std::cout << "[Password]: ";
+		std::cout << "[Password] !more than 6 : ";
 		std::cin >> password;
+		password = CheckPassword(password);
 		password = encryptPassword(password);
 		newUser->set_password(password);
 		
