@@ -39,6 +39,7 @@ public:
 				{
 					std::cout << "Matched Welcome" << currentuser.name() << std::endl;;
 					//passsfun(currentuser.name());
+
 					auto text=TextEditor(currentuser.name());
 					std::cout << "logged out" << std::endl;
 					notfound = 0;
@@ -103,6 +104,15 @@ public:
 	std::string encryptPassword(std::string password)
 	{
 		//logic to get encypt
+		int start = 0, end = password.length() - 1;
+		while (start <= end)
+		{
+			char temp = password[start];
+			password[start] = password[end];
+			password[end] = temp;
+			start++;
+			end--;
+		}
 		return password;
 	}
 

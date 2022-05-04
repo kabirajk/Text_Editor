@@ -46,11 +46,17 @@ public:
 
 	void fileEditor() 
 	{
+		/*system("cls");
 		std::cout << "File Editor" << std::endl;
+		Display();*/
 		int count = fileDataList.filedatabase(currentVersion-1).commitcount();
-		std::cout << count;
+		//std::cout << count;
 		while(1)
 		{
+			system("cls");
+			std::cout << "File Editor" << std::endl;
+			Display();
+			std::cout << std::endl;
 			std::cout << "1 => Add, 2 => Update, 3 => Remove, 4 => Display, 5 => revertVersion 6 => exit " << std::endl;
 			int option = -1;
 			std::cin >> option;
@@ -80,7 +86,7 @@ public:
 			}
 			if (option == 6) {/*break of loop*/ break; }
 
-			if (count % 5 == 0 ) 
+			if (count % (5+1) == 0 ) 
 			{ 
 				std::cout << currentVersion <<" " << fileName << std::endl;
 				currentVersion += 1;
@@ -107,11 +113,9 @@ public:
 		int flag = 0;
 		std::cin.ignore();
 		getline(std::cin, line);
-		//currnetFileObj.add_textline()->assign(line.c_str());
-		for(int i=0;i<currentHead->textline_size();i++)
-			if (currentHead->textline(i).empty()) { currentHead->mutable_textline(i)->assign(line.c_str()); flag = 1; break; }
-		if (flag!=1)
 		currentHead->add_textline()->assign(line.c_str());
+
+		
 	}
 	void Update(){
 		Display();
@@ -141,8 +145,9 @@ public:
 	
 	}
 	void Display()
-	{
-		std::cout << fileName<<currentVersion<<std::endl;
+	{	//implement empty file
+		system("cls");
+		std::cout <<"[" << fileName << "]  [V" << currentVersion << "]" << std::endl;
 		for (int lineindex = 0; lineindex < currentHead->textline_size(); lineindex += 1)
 			std::cout << lineindex << ". " << currentHead->textline(lineindex) << std::endl;
 		if (!currentHead->textline_size()) { std::cout << "[File Empty]" << std::endl; }

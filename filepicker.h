@@ -24,11 +24,17 @@ public:
 	void selectorCycle()
 	{	
 		while (1) {
+			system("cls");
+			Display();
+			if (projectList.projectnamelist_size() == 0)
+			{
+				std::cout << "[Empty Projects]" << std::endl;
+			}
 			int i = 0;
 			std::cout << "1 => new 2 => existing 3 => Delete 4 => exit: ";
 			std::cin >> i;
 			if (i == 1) { createNew(); }
-			if (i == 2) { existingFile(); }
+			if (i == 2) { existingFile();  }
 			if (i == 3) { deleteFile(); }
 			if (i==4) { break; }
 		}
@@ -36,11 +42,13 @@ public:
 	}
 	void createNew()
 	{
+
 		Files::Project* newfile = projectList.add_projectnamelist();
 		projectList.set_count(projectList.count() + 1);
 		std::cout << "[File Name]: ";
 		std::string filename;
 		//std::cin >> filename;
+		std::cin.ignore();
 		getline(std::cin, filename);
 		newfile->set_filename(filename);
 		newfile->set_projectid(projectList.count());
@@ -53,24 +61,19 @@ public:
 		newfile->set_creater(creater);
 		uniqueProjectCount += 1;
 		projectList.set_count(projectList.count() + 1);
-		auto edit = Editor(projectList.mutable_projectnamelist(uniqueProjectCount-1));
+		auto edit = Editor(projectList.mutable_projectnamelist(projectList.projectnamelist_size() - 1));
 		//proced to next()
 	}
 	void existingFile()
 	{
+		Display();
 		if (projectList.projectnamelist_size() == 0)
 		{
 			std::cout << "[Empty Projects]" << std::endl;
 		}
 		else
-		{
-			for (int projectindex = 0; projectindex < projectList.projectnamelist_size(); projectindex++)
-			{
-				std::cout << projectindex << ". " << projectList.projectnamelist(projectindex).filename()
-					<< "       " << projectList.projectnamelist(projectindex).createdtime()
-					<< "     " << projectList.projectnamelist(projectindex).currentversion()
-					<< std::endl;
-			}
+		{	
+			//Display();
 			int fileindex = -1;
 			std::cout << "enter The index of the file: " << std::endl;
 			std::cin >> fileindex;
@@ -82,6 +85,35 @@ public:
 			else std::cout << "Not a file index: " << fileindex << std::endl;
 
 		}
+	}
+	void Display()
+	{
+		system("cls");
+		std::cout.width(12);
+		std::cout << std::left;
+		std::cout << "File Index";
+		std::cout.width(15);
+		std::cout << std::left;
+		std::cout << "File Name";
+		std::cout.width(30);
+		std::cout << std::left;
+		std::cout << "File Created";
+		std::cout.width(30);
+		std::cout << std::left;
+		std::cout << "Curr.version" << std::endl;
+		for (int projectindex = 0; projectindex < projectList.projectnamelist_size(); projectindex++)
+		{	
+			std::cout.width(12);
+			std::cout << std:: left;
+			std::cout << projectindex;
+			std::cout.width(15);
+			std::cout << projectList.projectnamelist(projectindex).filename();
+			std::cout.width(30);
+			std::cout << projectList.projectnamelist(projectindex).createdtime();
+			std::cout.width(30);
+			std::cout << projectList.projectnamelist(projectindex).currentversion() << std::endl;
+		}
+		std::cout << std::endl;
 	}
 	void deleteFile()
 	{

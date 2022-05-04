@@ -3,6 +3,7 @@
 #include <fstream>
 #include <ctime>
 
+
 #include "User.pb.h"
 #include "textfile.pb.h"
 #include "filesversion.pb.h"
@@ -17,17 +18,13 @@ int main()
 	while(1)
 	{
 		int option = -1;
-		std::cout << "1 for signup 2 login 3 break" << std::endl;
+		std::cout << "1 => SignUp 2 => Login 3 => Exit" << std::endl;
 		std::cin >> option;
 		std::cin.ignore();
 		if(option == 1) user.signUp();
 		if(option ==2) user.logIn();
 		if (option == 3) break;
 	}
-	//todo
-	//file deletion
-	//version deletion
-	//account deletion
-
+	
 	return 0;
 };
