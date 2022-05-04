@@ -46,9 +46,7 @@ public:
 
 	void fileEditor() 
 	{
-		/*system("cls");
-		std::cout << "File Editor" << std::endl;
-		Display();*/
+
 		int count = fileDataList.filedatabase(currentVersion-1).commitcount();
 		//std::cout << count;
 		while(1)
