@@ -161,7 +161,7 @@ public:
 			std::cout << i+1 <<( i+1 == currentVersion?"*" : "") << " ";
 		}
 		int versiontohop;
-		if (fileDataList.filedatabase_size() > 2)
+		if (fileDataList.filedatabase_size() > 0)
 		{
 			std::cin >> versiontohop;
 			currentVersion = versiontohop;
