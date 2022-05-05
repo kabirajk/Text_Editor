@@ -51,7 +51,7 @@ public:
 		//std::cout << count;
 		while(1)
 		{
-			system("cls");
+			CLEARSCREEN;
 			std::cout << "File Editor" << std::endl;
 			displayText();
 			std::cout << std::endl;
@@ -147,7 +147,7 @@ public:
 	}
 	void displayText()
 	{	//implement empty file
-		system("cls");
+		CLEARSCREEN;
 		std::cout <<"[" << fileName << "]  [V" << currentVersion << "]" << std::endl;
 		for (int lineindex = 0; lineindex < currentHead->textline_size(); lineindex += 1)
 			std::cout << lineindex << ". " << currentHead->textline(lineindex) << std::endl;

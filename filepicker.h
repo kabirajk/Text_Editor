@@ -24,7 +24,7 @@ public:
 	void selectorCycle()
 	{	
 		while (1) {
-			system("cls");
+			CLEARSCREEN;
 			display();
 			if (projectList.projectnamelist_size() == 0)
 			{
@@ -88,7 +88,7 @@ public:
 	}
 	void display()
 	{
-		system("cls");
+		CLEARSCREEN;
 		std::cout.width(12);
 		std::cout << std::left;
 		std::cout << "File Index";

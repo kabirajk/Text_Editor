@@ -41,7 +41,7 @@ public:
 					//passsfun(currentuser.name());
 
 					auto text=TextEditor(currentuser.name());
-					system("cls");
+					CLEARSCREEN;
 					std::cout << "logged out" << std::endl;
 					notfound = 0;
 					break;

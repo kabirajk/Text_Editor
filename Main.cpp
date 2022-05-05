@@ -1,3 +1,10 @@
+#ifdef _WIN32
+#define CLEARSCREEN system("cls")
+#else
+#define CLEARSCREEN system("clear")
+#endif
+
+
 #include <iostream>
 #include <conio.h>
 #include <fstream>
