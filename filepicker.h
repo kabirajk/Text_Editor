@@ -25,7 +25,7 @@ public:
 	{	
 		while (1) {
 			system("cls");
-			Display();
+			display();
 			if (projectList.projectnamelist_size() == 0)
 			{
 				std::cout << "[Empty Projects]" << std::endl;
@@ -66,14 +66,14 @@ public:
 	}
 	void existingFile()
 	{
-		Display();
+		display();
 		if (projectList.projectnamelist_size() == 0)
 		{
 			std::cout << "[Empty Projects]" << std::endl;
 		}
 		else
 		{	
-			//Display();
+			//display();
 			int fileindex = -1;
 			std::cout << "enter The index of the file: " << std::endl;
 			std::cin >> fileindex;
@@ -86,7 +86,7 @@ public:
 
 		}
 	}
-	void Display()
+	void display()
 	{
 		system("cls");
 		std::cout.width(12);

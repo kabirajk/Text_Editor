@@ -53,33 +53,33 @@ public:
 		{
 			system("cls");
 			std::cout << "File Editor" << std::endl;
-			Display();
+			displayText();
 			std::cout << std::endl;
-			std::cout << "1 => Add, 2 => Update, 3 => Remove, 4 => Display, 5 => revertVersion 6 => exit " << std::endl;
+			std::cout << "1 => addText, 2 => updateText, 3 => removeText, 4 => displayText, 5 => revertVersion 6 => exit " << std::endl;
 			int option = -1;
 			std::cin >> option;
 			if (option == 1) 
 			{
-				/*Add*/Add();
+				/*addText*/addText();
 				count += 1;
 			}
 			if (option == 2) 
 			{
-				/*Update*/ Update();
+				/*updateText*/ updateText();
 				count += 1;
 			}
 			if (option == 3) 
 			{
-				/*Remove*/ Remove();
+				/*removeText*/ removeText();
 				count += 1;
 			}
 			if (option == 4)
 			{
-				/*Display*/ Display();
+				/*displayText*/ displayText();
 			}
 
 			if (option == 5) 
-			{	//!ADD Version count As repeated
+			{	//!addText Version count As repeated
 				/*RevertVersion*/ revertVersion();
 			}
 			if (option == 6) {/*break of loop*/ break; }
@@ -105,7 +105,7 @@ public:
 		std::cout << "[File]: "<<currentProject->filename() << " by " << currentProject->creater() << std::endl;
 	}
 	
-	void Add()
+	void addText()
 	{
 		std::string line;
 		int flag = 0;
@@ -115,12 +115,12 @@ public:
 
 		
 	}
-	void Update(){
+	void updateText(){
 
-		Display();
+		displayText();
 		std::string line;
 		int index;
-		std::cout<< "enter the index to update " << std::endl;
+		std::cout<< "enter the index to updateText " << std::endl;
 		std::cin >> index;
 		if((index>=0 && index<currentHead->textline_size())&& currentHead->textline_size()!=0)
 		std::cout << "Enter the text to be changed in " << index;
@@ -129,9 +129,9 @@ public:
 		currentHead->mutable_textline(index)->assign(line.c_str());
 		
 	}
-	void Remove()
+	void removeText()
 	{
-		Display();
+		displayText();
 		
 		//std::string line;
 		int index;
@@ -145,7 +145,7 @@ public:
 		}
 	
 	}
-	void Display()
+	void displayText()
 	{	//implement empty file
 		system("cls");
 		std::cout <<"[" << fileName << "]  [V" << currentVersion << "]" << std::endl;
